@@ -1,0 +1,7 @@
+# vsim -c -quiet -work ../../../proj_questa/work work.tb_dot_product_fma8 -do "run -all; quit" 
+# Start time: 22:13:15 on Jul 14,2026
+# ** Error (suppressible): (vsim-19) Failed to access library 'work' at "work".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# End time: 22:13:15 on Jul 14,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0

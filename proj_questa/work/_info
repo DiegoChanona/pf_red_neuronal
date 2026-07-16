@@ -1,17 +1,25 @@
 m255
 K4
 z2
-Z0 !s12c _opt2
+Z0 !s12c _opt
 Z1 !s99 nomlopt
 Z2 !s12c _opt1
 R1
-Z3 !s12c _opt
+R0
 R1
 R0
 R1
+Z3 !s12c _opt2
+R1
 R2
 R1
+R0
+R1
 R3
+R1
+R2
+R1
+R0
 R1
 !s11f vlog 2024.3 2024.09, Sep 10 2024
 13
@@ -20,348 +28,333 @@ R1
 !i10e 25
 !i10f 100
 cModel Technology
-Z4 dC:/quartus/aritmetica_digital/pf_red_neuronal/proj_questa
+Z4 dC:/quartus/aritmetica_digital/pf_red_neuronal/src/tb
 T_opt
-!s110 1783916698
-VUcYU1VkPCIgj2R`hneYiW2
-04 18 4 work tb_wallace_dotlane fast 0
-=1-200b746dff95-6a546899-2a2-c03c
+!s110 1784236013
+V>QGQU0Iz4ooPcPk`5bk[C2
+Z5 04 24 4 work neural_network_digits_tb fast 0
+=1-200b746dff95-6a5947ec-d6-8830
 R1
-Z5 !s12f OEM100
-Z6 !s12b OEM100
-!s124 OEM10U8 
-Z7 !s135 nogc
-Z8 o-quiet -auto_acc_if_foreign -work work
-Z9 tCvgOpt 0
+Z6 !s12f OEM100
+Z7 !s12b OEM100
+Z8 !s124 OEM10U65 
+Z9 !s135 nogc
+Z10 o-quiet -auto_acc_if_foreign -work work
+Z11 tCvgOpt 0
 n@_opt
-Z10 OL;O;2024.3;79
-R4
+Z12 OL;O;2024.3;79
 T_opt1
-!s110 1783916700
-VlM6L55;OLBUPJHe_FJ]oO0
-04 15 4 work tb_requant_unit fast 0
-=1-200b746dff95-6a54689b-30c-bc30
-R1
+!s110 1784235379
+VK5HfZ<a`9]1bVNa[Le^XT1
 R5
+=1-200b746dff95-6a594571-32a-d30
+R1
 R6
-Z11 !s124 OEM10U2 
 R7
 R8
 R9
-n@_opt1
 R10
-R4
-T_opt2
-!s110 1783916702
-V^l]?@Qgzd5<GIVZbO6Sej2
-04 14 4 work tb_argmax_unit fast 0
-=1-200b746dff95-6a54689d-340-7eb4
-R1
-R5
-R6
 R11
-R7
-R8
-R9
-n@_opt2
-R10
-vargmax_unit
-Z12 2../src/csa.sv|../src/parallel_prefix_adder.sv|../src/booth_radix4_pp.sv|../src/wallace_tree_mult.sv|../src/requant_unit.sv|../src/argmax_unit.sv|../src/tb/unit/tb_csa.sv|../src/tb/unit/tb_parallel_prefix_adder.sv|../src/tb/unit/tb_booth_radix4_pp.sv|../src/tb/unit/tb_wallace_dotlane.sv|../src/tb/unit/tb_requant_unit.sv|../src/tb/unit/tb_argmax_unit.sv
-Z13 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z14 !s110 1783916690
-!i10b 1
-!s100 dG73TU8HRmF3Z5JbX8NV21
-ICO@?NPMa_?FK>06daX?6K3
-S1
+n@_opt1
+R12
 R4
-w1783915478
+vargmax_unit
+Z13 2../src/argmax_unit.sv|../src/biases_rom.sv|../src/booth_radix4_pp.sv|../src/csa.sv|../src/dot_product_fma8.sv|../src/hidden_mem.sv|../src/neural_network_digits.sv|../src/nn_fsm.sv|../src/parallel_prefix_adder.sv|../src/requant_unit.sv|../src/weights_rom.sv|../src/tb/neural_network_digits_tb.sv
+Z14 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z15 !s110 1784236011
+!i10b 1
+!s100 nNlLdAG0=J_2H0b@1<1=F1
+IRkA3NIk7KD3SKNdXg^Ek>3
+S1
+Z16 dC:/quartus/aritmetica_digital/pf_red_neuronal/proj_questa
+w1784173050
 8../src/argmax_unit.sv
 F../src/argmax_unit.sv
 !i122 0
-L0 15 28
-Z15 VDg1SIo80bB@j0V0VzS_@n1
-Z16 OL;L;2024.3;79
+L0 13 28
+Z17 VDg1SIo80bB@j0V0VzS_@n1
+Z18 OL;L;2024.3;79
 r1
 !s85 0
 31
-Z17 !s108 1783916690.000000
-Z18 !s107 ../src/tb/unit/tb_argmax_unit.sv|../src/tb/unit/tb_requant_unit.sv|../src/tb/unit/tb_wallace_dotlane.sv|../src/tb/unit/tb_booth_radix4_pp.sv|../src/tb/unit/tb_parallel_prefix_adder.sv|../src/tb/unit/tb_csa.sv|../src/argmax_unit.sv|../src/requant_unit.sv|../src/wallace_tree_mult.sv|../src/booth_radix4_pp.sv|../src/parallel_prefix_adder.sv|../src/csa.sv|
-Z19 !s90 -sv|../src/csa.sv|../src/parallel_prefix_adder.sv|../src/booth_radix4_pp.sv|../src/wallace_tree_mult.sv|../src/requant_unit.sv|../src/argmax_unit.sv|../src/tb/unit/tb_csa.sv|../src/tb/unit/tb_parallel_prefix_adder.sv|../src/tb/unit/tb_booth_radix4_pp.sv|../src/tb/unit/tb_wallace_dotlane.sv|../src/tb/unit/tb_requant_unit.sv|../src/tb/unit/tb_argmax_unit.sv|
+Z19 !s108 1784236011.000000
+Z20 !s107 ../src/tb/neural_network_digits_tb.sv|../src/weights_rom.sv|../src/requant_unit.sv|../src/parallel_prefix_adder.sv|../src/nn_fsm.sv|../src/neural_network_digits.sv|../src/hidden_mem.sv|../src/dot_product_fma8.sv|../src/csa.sv|../src/booth_radix4_pp.sv|../src/biases_rom.sv|../src/argmax_unit.sv|
+Z21 !s90 -sv|../src/argmax_unit.sv|../src/biases_rom.sv|../src/booth_radix4_pp.sv|../src/csa.sv|../src/dot_product_fma8.sv|../src/hidden_mem.sv|../src/neural_network_digits.sv|../src/nn_fsm.sv|../src/parallel_prefix_adder.sv|../src/requant_unit.sv|../src/weights_rom.sv|../src/tb/neural_network_digits_tb.sv|
 !i113 0
-Z20 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R9
-vbooth_radix4_pp
-R12
+Z22 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R11
+vbiases_rom
 R13
 R14
+R15
+!i10b 1
+!s100 R2lP1`8Ql@3QG?oV82PMF0
+I6zQ:IV^<ZH6FiGGLjjN4h1
+S1
+R16
+w1784172712
+8../src/biases_rom.sv
+F../src/biases_rom.sv
+!i122 0
+L0 6 15
+R17
+R18
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 0
+R22
+R11
+vbooth_radix4_pp
+R13
+R14
+R15
 !i10b 1
 !s100 lzcU[cC6A:3^i=XX5c__72
 ISnbf]@gM^=BdS`TMK1;Li0
 S1
-R4
+R16
 w1781321787
 8../src/booth_radix4_pp.sv
 F../src/booth_radix4_pp.sv
 !i122 0
 L0 4 50
-R15
-R16
+R17
+R18
 r1
 !s85 0
 31
-R17
-R18
 R19
-!i113 0
 R20
-R9
+R21
+!i113 0
+R22
+R11
 vcsa
-R12
 R13
 R14
+R15
 !i10b 1
 !s100 Bzd;9[8Qc2A[zhii4ID:83
 IaRYUnAVXk:eHhG2_zYBYO2
 S1
-R4
+R16
 w1780871920
 8../src/csa.sv
 F../src/csa.sv
 !i122 0
 L0 3 17
-R15
-R16
+R17
+R18
 r1
 !s85 0
 31
-R17
-R18
 R19
-!i113 0
 R20
-R9
-vparallel_prefix_adder
-R12
+R21
+!i113 0
+R22
+R11
+vdot_product_fma8
 R13
 R14
+R15
+!i10b 1
+!s100 Do9kXbV5XOA_a?]L;Ve2K0
+IHcaNnb1K3E<i`OLfag_^:1
+S1
+R16
+w1784172318
+8../src/dot_product_fma8.sv
+F../src/dot_product_fma8.sv
+!i122 0
+L0 18 149
+R17
+R18
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 0
+R22
+R11
+vhidden_mem
+R13
+R14
+R15
+!i10b 1
+!s100 nlBXo1>oP<VWfd_[6OnOR1
+I:=WSD>h[oa^z^?LBB@mlS0
+S1
+R16
+w1784172720
+8../src/hidden_mem.sv
+F../src/hidden_mem.sv
+!i122 0
+L0 6 25
+R17
+R18
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 0
+R22
+R11
+vneural_network_digits
+R13
+R14
+R15
+!i10b 1
+!s100 PQkc;<jVabekKZGDRTWSn0
+I5n8V2YZ=dG43?@zk6O0Kz1
+S1
+R16
+w1784176176
+8../src/neural_network_digits.sv
+F../src/neural_network_digits.sv
+!i122 0
+L0 17 147
+R17
+R18
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 0
+R22
+R11
+vneural_network_digits_tb
+R13
+R14
+R15
+!i10b 1
+!s100 0JbUkTKj_zM55n8TnR39a2
+I0GASgPGT2S6=k6m2aeSiF3
+S1
+R16
+w1783647400
+8../src/tb/neural_network_digits_tb.sv
+F../src/tb/neural_network_digits_tb.sv
+!i122 0
+L0 13 104
+R17
+R18
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 0
+R22
+R11
+vnn_fsm
+R13
+R14
+R15
+!i10b 1
+!s100 T7h95]=LYQ_a?PX3JN4^@0
+I5hlCFV_a_ZAn0:GiiJol52
+S1
+R16
+w1784172615
+8../src/nn_fsm.sv
+F../src/nn_fsm.sv
+!i122 0
+L0 20 139
+R17
+R18
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 0
+R22
+R11
+vparallel_prefix_adder
+R13
+R14
+R15
 !i10b 1
 !s100 M>K>JP@Fk2Qm4ZX`Q@HTl1
 IJag[EQHR7geaT5B3>79jU3
 S1
-R4
+R16
 w1780449694
 8../src/parallel_prefix_adder.sv
 F../src/parallel_prefix_adder.sv
 !i122 0
 L0 1 69
-R15
-R16
+R17
+R18
 r1
 !s85 0
 31
-R17
-R18
 R19
-!i113 0
 R20
-R9
+R21
+!i113 0
+R22
+R11
 vrequant_unit
-R12
 R13
 R14
+R15
 !i10b 1
-!s100 XPzE=A@b^kBn3JCN;Y1Uk1
-Ic:[KU9^3:72;bZiXk]:GV1
+!s100 2SBWcHWdaliD>l:dKbJ;?2
+IJPNKjY@kOSbQFkmBVRc;31
 S1
-R4
-w1783915436
+R16
+w1784172639
 8../src/requant_unit.sv
 F../src/requant_unit.sv
 !i122 0
-L0 14 17
-R15
-R16
+L0 10 17
+R17
+R18
 r1
 !s85 0
 31
-R17
-R18
 R19
-!i113 0
 R20
-R9
-vtb_argmax_unit
-R12
+R21
+!i113 0
+R22
+R11
+vweights_rom
 R13
 R14
-!i10b 1
-!s100 OVElh@hG`agLT@^n8InYX0
-I^G0OThFXeTVXSXj:]MOTL1
-S1
-R4
-w1783915790
-8../src/tb/unit/tb_argmax_unit.sv
-F../src/tb/unit/tb_argmax_unit.sv
-!i122 0
-L0 4 90
 R15
+!i10b 1
+!s100 N>VlKIYF1^T5<>@;:moA:3
+I1VQ7;nmRjlnfmZ6lMjEmK2
+S1
 R16
+w1784172702
+8../src/weights_rom.sv
+F../src/weights_rom.sv
+!i122 0
+L0 10 19
+R17
+R18
 r1
 !s85 0
 31
-R17
-R18
 R19
-!i113 0
 R20
-R9
-vtb_booth_radix4_pp
-R12
-R13
-R14
-!i10b 1
-!s100 Ee^VaHg1keSSH<ThnaQZ]1
-IMEDLZUWF>[:BNQ>TDHo?n0
-S1
-R4
-w1783916131
-8../src/tb/unit/tb_booth_radix4_pp.sv
-F../src/tb/unit/tb_booth_radix4_pp.sv
-!i122 0
-L0 7 63
-R15
-R16
-r1
-!s85 0
-31
-R17
-R18
-R19
+R21
 !i113 0
-R20
-R9
-vtb_csa
-R12
-R13
-R14
-!i10b 1
-!s100 2]63C2kJOk7@j5I<On2hW1
-I3VC[LTk;mZKW?3n]H8i413
-S1
-R4
-w1783915752
-8../src/tb/unit/tb_csa.sv
-F../src/tb/unit/tb_csa.sv
-!i122 0
-L0 4 47
-R15
-R16
-r1
-!s85 0
-31
-R17
-R18
-R19
-!i113 0
-R20
-R9
-vtb_parallel_prefix_adder
-R12
-R13
-R14
-!i10b 1
-!s100 `?EDYUg]:ILX:JRQnm39S0
-IOX4hS13hQ6SEBjk@zGLmY0
-S1
-R4
-w1783915757
-8../src/tb/unit/tb_parallel_prefix_adder.sv
-F../src/tb/unit/tb_parallel_prefix_adder.sv
-!i122 0
-L0 5 77
-R15
-R16
-r1
-!s85 0
-31
-R17
-R18
-R19
-!i113 0
-R20
-R9
-vtb_requant_unit
-R12
-R13
-R14
-!i10b 1
-!s100 JmX6RbfN7<0@G466fddgi3
-IoTESW]l7eOE9BhDPll^m_1
-S1
-R4
-w1783915765
-8../src/tb/unit/tb_requant_unit.sv
-F../src/tb/unit/tb_requant_unit.sv
-!i122 0
-L0 3 63
-R15
-R16
-r1
-!s85 0
-31
-R17
-R18
-R19
-!i113 0
-R20
-R9
-vtb_wallace_dotlane
-R12
-R13
-R14
-!i10b 1
-!s100 :l7d=aFaTNA3CX:YEUT7l3
-ICZna`Sck=`?X1D5F`RDg82
-S1
-R4
-w1783915760
-8../src/tb/unit/tb_wallace_dotlane.sv
-F../src/tb/unit/tb_wallace_dotlane.sv
-!i122 0
-L0 12 60
-R15
-R16
-r1
-!s85 0
-31
-R17
-R18
-R19
-!i113 0
-R20
-R9
-vwallace_tree_mult
-R12
-R13
-R14
-!i10b 1
-!s100 1goOmY92fPkze5MFe6b_T1
-I=O2jAl[ZD[PhfECIdDUJ42
-S1
-R4
-w1781971326
-8../src/wallace_tree_mult.sv
-F../src/wallace_tree_mult.sv
-!i122 0
-L0 4 107
-R15
-R16
-r1
-!s85 0
-31
-R17
-R18
-R19
-!i113 0
-R20
-R9
+R22
+R11

@@ -1,0 +1,8 @@
+
+State Machine - |neural_network_digits|nn_fsm:u_fsm|state
+Name state.LAYER2 state.LAYER1 state.LOAD_IMG state.IDLE state.DONE 
+state.IDLE 0 0 0 0 0 
+state.LOAD_IMG 0 0 1 1 0 
+state.LAYER1 0 1 0 1 0 
+state.LAYER2 1 0 0 1 0 
+state.DONE 0 0 0 1 1 

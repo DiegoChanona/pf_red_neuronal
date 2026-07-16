@@ -2,7 +2,7 @@
 //
 // La escribe la capa 1 (una activacion requantizada por neurona, al cerrar su ultima
 // pasada) y la lee la capa 2 en grupos de 8 (dos pasadas cubren las 16 entradas).
-// Escritura sincrona, lectura combinacional por 8 puertos, uno por carril.
+// Escritura sincrona, lectura combinacional por 8 puertos, uno por carril del dot product.
 module hidden_mem #(
   parameter int DEPTH      = 16,
   parameter int ADDR_WIDTH = 4,

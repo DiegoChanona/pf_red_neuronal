@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Wed Jul 15 21:03:13 2026
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : neural_network_digits
+Top-level Entity Name : neural_network_digits
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 464
+Total pins : 265
+Total virtual pins : 0
+Total block memory bits : 0
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

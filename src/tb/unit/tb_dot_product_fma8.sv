@@ -11,7 +11,7 @@ module tb_dot_product_fma8;
   int errors = 0;
   int checks = 0;
 
-  dot_product_fma8 dut (.a(a), .w(w), .acc_in(acc_in), .acc_out(acc_out));
+  dot_product_fma8 dut (.data(a), .weight(w), .acc_in(acc_in), .acc_out(acc_out));
 
   task automatic check(input string tag);
     logic signed [31:0] ref_acc;

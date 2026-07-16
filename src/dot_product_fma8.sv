@@ -1,21 +1,18 @@
 /*
-Producto punto de 8 terminos con acumulador, fusionado en un solo arbol de Wallace.
+Producto punto de 8 terminos con acumulador, todo en un solo arbol de Wallace.
 
     acc_out = sum(weight[i] * data[i], i=0..7) + acc_in
 
-Es la idea de fma.sv escalada de 1 multiplicacion a 8: los 8 multiplicadores NO se
-colapsan por separado. Los productos parciales de Booth de los ocho carriles, sus filas
-de correccion, y el acumulador entran TODOS como sumandos del mismo arbol de CSAs, y hay
-un unico Carry-Propagate Adder (Kogge-Stone) al final de todo el producto punto.
+Los 8 multiplicadores no se resuelven por separado. Los productos parciales de Booth de
+los ocho carriles, sus filas de correccion y el acumulador entran juntos al mismo arbol
+de CSAs, con un unico Kogge-Stone al final. El acumulador entra como una fila mas, asi
+que realimentarlo no cuesta un sumador extra: en la pasada 0 trae el bias y en las demas
+el valor realimentado (el mux vive en la FSM).
 
-El acumulador entra como una fila mas del arbol (igual que srcc en fma.sv), asi que no
-cuesta un sumador extra: en la primera pasada de cada neurona trae el bias, en las
-siguientes el acumulador realimentado. El mux que elige entre ambos vive fuera, en la FSM.
-
-Signedness: el peso es int8 con signo, pero el dato (pixel uint4 o activacion uint8) es sin
-signo, y booth_radix4_pp tiene un solo is_signed para ambos operandos. Se resuelve pasando
-el dato zero-extendido a 9 bits ({1'b0, data}), que es un signed siempre no-negativo, y
-corriendo Booth en modo signed. Sin ese bit extra, una activacion de 200 se leeria como -56.
+Ojo con la signedness: el peso es int8 con signo pero el dato (pixel uint4 o activacion
+uint8) es sin signo, y booth_radix4_pp usa un solo is_signed para ambos operandos. Por
+eso el dato va zero-extendido a 9 bits ({1'b0, data}) y corremos Booth en modo signed.
+Sin ese bit extra, una activacion de 200 se leeria como -56.
 */
 
 module dot_product_fma8 #(
@@ -47,18 +44,26 @@ module dot_product_fma8 #(
     return n;
   endfunction
 
+  // Cuantos niveles de compresion 3:2 hacen falta para llegar a 2 filas.
+  // For de cota fija en vez de while: el elaborador de constantes de Quartus no acepta
+  // while/break en una funcion constante. Cuando n<=2 las vueltas restantes no hacen
+  // nada y lv se queda en su valor final.
+  localparam int MAX_TREE_LEVELS = 64;
   function automatic int levels_to_two(int n);
-    int lv = 0;
-    while (n > 2) begin
-      n = 2*(n/3) + (n%3);
-      lv++;
+    int lv;
+    lv = 0;
+    for (int i = 0; i < MAX_TREE_LEVELS; i++) begin
+      if (n > 2) begin
+        n  = 2*(n/3) + (n%3);
+        lv = lv + 1;
+      end
     end
     return lv;
   endfunction
 
-  localparam int NUM_LEVELS = levels_to_two(INIT_ROWS);  // 49 -> ... -> 2
+  localparam int NUM_LEVELS = levels_to_two(INIT_ROWS);  // 49 -> ... -> 2 => 9
 
-  // Si el arbol no converge exactamente a 2 filas, el CPA final estaria sumando basura.
+  // Si el arbol no cierra en exactamente 2 filas, el CPA final sumaria basura.
   initial begin
     if (rows_after(INIT_ROWS, NUM_LEVELS) != 2)
       $fatal(1, "dot_product_fma8: el arbol no converge a 2 filas (INIT_ROWS=%0d, NUM_LEVELS=%0d, quedan %0d)",
@@ -86,8 +91,8 @@ module dot_product_fma8 #(
   endgenerate
 
   // --- Fila inicial del arbol ---
-  // pp[lane][i] pesa 2^(2i) DENTRO de su carril. Entre carriles no hay corrimiento: las 8
-  // multiplicaciones son sumandos del mismo peso.
+  // pp[lane][i] pesa 2^(2i) dentro de su carril. Entre carriles no hay corrimiento: las 8
+  // multiplicaciones suman con el mismo peso.
   logic [ACC_WIDTH-1:0] rows [NUM_LEVELS+1][INIT_ROWS];
 
   always_comb begin
@@ -98,9 +103,9 @@ module dot_product_fma8 #(
       for (int i = 0; i < NUM_PP; i++)
         rows[0][l*NUM_PP + i] = ACC_WIDTH'($signed(pp[l][i])) << (2*i);
 
-      // Una fila de correccion POR CARRIL: el +1 del complemento a dos de cada PP negativo
-      // va en la columna 2i. No se pueden fusionar las correcciones de dos carriles porque
-      // ambos pueden tener pp_neg[i]=1 en la misma columna.
+      // Una fila de correccion por carril: el +1 del complemento a dos de cada PP negativo
+      // va en la columna 2i. No fusiono las correcciones de dos carriles porque ambos
+      // pueden tener pp_neg[i]=1 en la misma columna.
       for (int i = 0; i < NUM_PP; i++)
         rows[0][PP_ROWS + l][2*i] = pp_neg[l][i];
     end

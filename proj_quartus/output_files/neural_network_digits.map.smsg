@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at nn_fsm.sv(43): object "done" differs only in case from object "DONE" in the same scope File: C:/quartus/aritmetica_digital/pf_red_neuronal/src/nn_fsm.sv Line: 43
